@@ -85,7 +85,7 @@ nav {
     align-items: center;
 }
 .logo img {
-    height: 44px;
+    height: 52px;
     width: auto;
     object-fit: contain;
     border-radius: 0;
@@ -280,24 +280,50 @@ footer { background: var(--navy); color: var(--white); padding: 4rem 2.5rem 2rem
 }
 
 /* ---- RESPONSIVE ---- */
-@media (max-width: 760px) {
-    nav { padding: 1rem 1.3rem; }
-    .phead, .pwrap, .cta, footer { padding-left: 1.3rem; padding-right: 1.3rem; }
-    .grid { grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+    /* NAV */
+    nav { padding: .9rem 1.2rem; }
+    .logo img { height: 40px; }
     .nl {
         position: fixed;
-        inset: 0 0 0 30%;
+        inset: 0 0 0 25%;
         background: #162050;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 2rem;
         transform: translateX(100%);
         transition: transform .4s var(--ease);
         z-index: 40;
     }
     .nl.open { transform: none; }
-    .nl a { font-size: 1.4rem; opacity: 1; }
+    .nl a { font-size: 1.3rem; opacity: 1; color: var(--white); }
     .bg { display: flex; z-index: 50; }
+
+    /* PAGE HEADER */
+    .phead { padding: 3rem 1.2rem 2rem; }
+    .phead h1 { font-size: clamp(2.5rem, 13vw, 4rem); }
+    .phead p { font-size: .9rem; }
+
+    /* GRID */
+    .pwrap { padding: 1.5rem 1.2rem 4rem; }
+    .pkg-grid { grid-template-columns: 1fr; }
+    .pkg-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.12); min-height: auto; }
+    .pkg-card:last-child { border-bottom: none; }
+
+    /* CTA */
+    .cta { padding: 4rem 1.2rem; }
+    .cta h2 { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+    .cta p { font-size: .95rem; }
+
+    /* FOOTER */
+    footer { padding: 3rem 1.2rem 1.5rem; }
+    .ft { flex-direction: column; gap: 2rem; padding-bottom: 2rem; }
+    .fc { gap: 2rem; }
+    .fb { flex-direction: column; gap: .5rem; }
 }
+
 @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
     .rv { opacity: 1; transform: none; }
