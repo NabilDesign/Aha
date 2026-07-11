@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aha! Agency Het moment dat het klikt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="nav">
+    <a href="index.html" class="logo">
+        <img src="media/Logo-White.png" alt="Aha! Agency">
+    </a>
+    <div class="nl" id="nl">
+        <a href="projecten.html">Projecten</a>
+        <a href="#wie">Over</a>
+        <a href="#contact" class="c">Contact</a>
+    </div>
+    <button class="bg" id="bg">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- ACT 1: DE BELOFTE -->
+<header class="hero" id="hero">
+    <div class="inner">
+        <div class="left">
+            <span class="ey">Marketing &amp; creatie Antwerpen, België</span>
+            <h1>
+                <span class="l"><i>Het moment</i></span>
+                <span class="l"><i>dat het</i></span>
+                <span class="l"><i class="out">klikt</i></span>
+            </h1>
+            <p class="sub">Creating the moment your audience finally gets it. We bouwen merken, logo's en trailers die blijven hangen.</p>
+            <div class="acts">
+                <a href="projecten.html" class="btn btn-w">Bekijk het werk</a>
+                <a href="#contact" class="btn btn-o">Start een project</a>
+            </div>
+        </div>
+        <div class="right">
+            <img src="media/claude.png" alt="Het moment dat het klikt" class="logo-img">
+        </div>
+    </div>
+</header>
+
+<!-- PLANNEN -->
+<section class="who" id="wie">
+    <div class="plans-intro rv">
+        <span class="lab">Wat we doen</span>
+        <h2>Kies je pakket</h2>
+    </div>
+    <div class="plans">
+        <div class="plan rv">
+            <div class="plan-num">01</div>
+            <div class="plan-body">
+                <h3>Aha!<br>Branding</h3>
+                <p>Een identiteit die meteen klopt. Logo, kleuren en huisstijl die jouw merk neerzetten zoals het hoort herkenbaar en consistent.</p>
+                <ul class="plan-list">
+                    <li>Logo design</li>
+                    <li>Kleurenpalet &amp; typografie</li>
+                    <li>Huisstijl &amp; brand guidelines</li>
+                    <li>Social media kit</li>
+                </ul>
+            </div>
+            <a href="#contact" class="plan-cta">Start →</a>
+        </div>
+        <div class="plan rv">
+            <div class="plan-num">02</div>
+            <div class="plan-body">
+                <h3>Aha!<br>Content</h3>
+                <p>Content die converteert. Posts, reels en volledig social media beheer. Jij focust op je werk wij zorgen dat je zichtbaar blijft.</p>
+                <ul class="plan-list">
+                    <li>Social media beheer</li>
+                    <li>Posts &amp; stories</li>
+                    <li>Reels &amp; korte video's</li>
+                    <li>Maandelijkse rapportage</li>
+                </ul>
+            </div>
+            <a href="#contact" class="plan-cta">Start →</a>
+        </div>
+        <div class="plan rv">
+            <div class="plan-num">03</div>
+            <div class="plan-body">
+                <h3>Aha!<br>Production</h3>
+                <p>Professionele video voor wie écht wil opvallen. Van concept tot eindproduct trailers en commerciële video op niveau.</p>
+                <ul class="plan-list">
+                    <li>Trailer productie</li>
+                    <li>Commerciële video</li>
+                    <li>Script &amp; storyboard</li>
+                    <li>Post-productie &amp; editing</li>
+                </ul>
+            </div>
+            <a href="#contact" class="plan-cta">Start →</a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="contact-inner">
+        <div class="contact-left rv">
+            <span class="lab">Contact</span>
+            <h2>Laat het<br>klikken</h2>
+            <p>Een idee, een merk of een project? Stuur een bericht en we komen snel bij je terug.</p>
+            <div class="contact-info">
+                <a href="mailto:hello@aha.digital.eu">hello@aha.digital.eu</a>
+                <a href="https://instagram.com/aha.digital.eu">@aha.digital.eu</a>
+            </div>
+        </div>
+        <form class="contact-form rv" id="contactForm">
+            <div class="field">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" placeholder="Jouw naam" required>
+            </div>
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="jouw@email.com" required>
+            </div>
+            <div class="field">
+                <label>Welk pakket?</label>
+                <div class="plan-select">
+                    <button type="button" class="plan-btn" data-value="branding">Aha! Branding</button>
+                    <button type="button" class="plan-btn" data-value="content">Aha! Content</button>
+                    <button type="button" class="plan-btn" data-value="production">Aha! Production</button>
+                </div>
+                <input type="hidden" id="project" name="project">
+            </div>
+            <div class="field">
+                <label for="bericht">Bericht</label>
+                <textarea id="bericht" name="bericht" rows="5" placeholder="Vertel over je project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-w">Verstuur →</button>
+            <p class="form-success" id="formSuccess">Bericht ontvangen! We komen snel bij je terug.</p>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="ft">
+        <div>
+            <a href="index.html" class="logo">
+                <img src="media/Logo-White.png" alt="Aha! Agency">
+            </a>
+            <p>Creating the moment your audience finally gets it. Antwerpen, België.</p>
+        </div>
+        <div class="fc">
+            <div>
+                <h4>Menu</h4>
+                <a href="projecten.html">Projecten</a>
+                <a href="#wie">Over</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div>
+                <h4>Social</h4>
+                <a href="https://instagram.com/aha.digital.eu">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    <div class="fb">
+        <span>© 2026 Aha! Agency</span>
+        <span>Gemaakt met inzicht.</span>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
