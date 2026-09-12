@@ -16,7 +16,7 @@ navLinks.querySelectorAll('a').forEach(a =>
 // ---- MOBILE HERO FOTO ----
 const heroBg = document.getElementById('heroBg');
 if (heroBg && window.innerWidth <= 640) {
-    heroBg.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80';
+    heroBg.src = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80';
 }
 
 // ---- HERO ANIMATE IN ----

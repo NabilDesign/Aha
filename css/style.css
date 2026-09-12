@@ -182,7 +182,7 @@ nav.scrolled .bg span { background: var(--dark); }
     line-height: .9;
     color: var(--dark);
 }
-.hero-h1 .l { display: block; overflow: hidden; }
+.hero-h1 .l { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
 .hero-h1 .l i {
     display: block;
     font-style: normal;
@@ -190,13 +190,6 @@ nav.scrolled .bg span { background: var(--dark); }
     transition: transform 1s var(--ease);
 }
 .hero.go .hero-h1 .l i { transform: translateY(0); }
-.hero-aha i {
-    color: var(--blue);
-    font-style: italic;
-    -webkit-text-stroke: 0;
-    font-size: .75em;
-    letter-spacing: -.01em;
-}
 .hero.go .hero-h1 .l:nth-child(2) i { transition-delay: .08s; }
 .hero.go .hero-h1 .l:nth-child(3) i { transition-delay: .16s; }
 .out { color: transparent; -webkit-text-stroke: 3px var(--dark); }
