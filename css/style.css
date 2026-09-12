@@ -78,6 +78,21 @@ nav.dark { background: #162050; }
 }
 .nl .c:hover { background: var(--navy); color: var(--white); }
 
+.nl-close {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: .6;
+    padding: .5rem;
+}
+.nl-close:hover { opacity: 1; }
+
 .bg {
     display: none;
     background: none;
@@ -632,31 +647,35 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
     .logo img { height: 42px; }
     .nl {
         position: fixed;
-        inset: 0 0 0 20%;
+        inset: 0 0 0 0;
         background: #0f1535;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding: 2.5rem 2rem;
         gap: 2.5rem;
         transform: translateX(100%);
         transition: transform .4s var(--ease);
         z-index: 40;
-        box-shadow: -4px 0 30px rgba(0,0,0,.3);
     }
     .nl.open { transform: none; }
     .nl a {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         opacity: 1;
         color: var(--white);
         font-weight: 700;
+        text-align: center;
+        width: 100%;
     }
     .nl .c {
         background: var(--blue);
         color: var(--white);
-        padding: .9rem 1.8rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        width: 100%;
     }
     .bg { display: flex; z-index: 50; }
+    .nl-close { display: block; }
 
     /* --- HERO --- */
     .hero {
