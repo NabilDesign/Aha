@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projecten Aha! Agency</title>
+    <title>Projecten — Aha! Agency</title>
     <link rel="icon" type="image/png" href="media/Logo-Color.png">
     <link rel="apple-touch-icon" href="media/Logo-Color.png">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,7 +17,7 @@
 
 <nav>
     <a href="index.html" class="logo">
-        <img src="media/Logo-White.png" alt="Aha! Agency">
+        <img src="media/Logo-Color.png" alt="Aha! Agency">
     </a>
     <div class="nl" id="nl">
         <button class="nl-close" id="nlClose">✕</button>
@@ -24,52 +26,113 @@
         <a href="index.html#contact" class="c">Contact</a>
     </div>
     <button class="bg" id="bg">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </button>
 </nav>
 
+<!-- PAGE HEADER -->
 <header class="phead">
-    <div class="inner">
-        <span class="lab">Geselecteerd werk</span>
-        <h1>Projecten</h1>
-        <p>Trailers voor streamers, logo's voor creators, rebrands voor webshops. Elk project draait om dat ene moment: dat het klikt.</p>
+    <div class="phead-inner">
+        <div class="phead-left">
+            <span class="lab">Geselecteerd werk</span>
+            <h1>Projecten</h1>
+            <p>Trailers, logo's en rebrands voor creators, streamers en merken die durven opvallen.</p>
+        </div>
+        <div class="phead-right">
+            <a href="index.html#contact" class="btn btn-dark">Start een project →</a>
+        </div>
     </div>
 </header>
 
-<section class="pwrap">
-    <div class="pkg-grid rv">
-        <!-- Vervang style="background-image:url(...)" met je eigen foto zodra je die hebt -->
-        <div class="pkg-card" style="background-image: none;">
-            <div class="pkg-card-num">01</div>
-            <div class="pkg-card-body">
-                <h3>Aha!<br>Branding</h3>
-                <p>Logo, huisstijl en visual identity voor creators en merken.</p>
-            </div>
-        </div>
-        <div class="pkg-card" style="background-image: none;">
-            <div class="pkg-card-num">02</div>
-            <div class="pkg-card-body">
-                <h3>Aha!<br>Content</h3>
-                <p>Social media beheer, posts, reels en korte video's.</p>
-            </div>
-        </div>
-        <div class="pkg-card" style="background-image: none;">
-            <div class="pkg-card-num">03</div>
-            <div class="pkg-card-body">
-                <h3>Aha!<br>Production</h3>
-                <p>Trailers, commerciële video en campagnefilm op niveau.</p>
-            </div>
-        </div>
+<!-- FILTER TABS -->
+<section class="filter-bar">
+    <div class="filter-inner">
+        <button class="ftab active" data-f="all">Alles</button>
+        <button class="ftab" data-f="branding">Branding</button>
+        <button class="ftab" data-f="content">Content</button>
+        <button class="ftab" data-f="production">Production</button>
     </div>
 </section>
 
-<section class="cta">
-    <div class="inner">
+<!-- PROJECTEN GRID -->
+<section class="pgrid-wrap">
+    <div class="pgrid">
+
+        <a href="#" class="pcard" data-cat="branding">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=800&q=80" alt="Creator Logo">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Branding</span>
+                <h3>Creator Logo</h3>
+                <p>Volledige visuele identiteit voor een content creator.</p>
+            </div>
+        </a>
+
+        <a href="#" class="pcard" data-cat="production">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80" alt="Streamer Trailer">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Production</span>
+                <h3>Streamer Trailer</h3>
+                <p>Branded launch video voor een Twitch-creator.</p>
+            </div>
+        </a>
+
+        <a href="#" class="pcard" data-cat="content">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80" alt="Social Media">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Content</span>
+                <h3>Social Campagne</h3>
+                <p>Maandelijks contentbeheer voor een groeiende creator.</p>
+            </div>
+        </a>
+
+        <a href="#" class="pcard" data-cat="branding">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" alt="Full Identity">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Branding</span>
+                <h3>Full Identity</h3>
+                <p>Compleet merkpakket van logo tot social media kit.</p>
+            </div>
+        </a>
+
+        <a href="#" class="pcard" data-cat="production">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" alt="Product Film">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Production</span>
+                <h3>Product Film</h3>
+                <p>Commerciële video voor een webshop lancering.</p>
+            </div>
+        </a>
+
+        <a href="#" class="pcard" data-cat="content">
+            <div class="pcard-img">
+                <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=800&q=80" alt="Reel Campagne">
+            </div>
+            <div class="pcard-info">
+                <span class="pcard-tag">Aha! Content</span>
+                <h3>Reel Campagne</h3>
+                <p>Serie korte video's voor een productlancering op Instagram.</p>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="pcta">
+    <div class="pcta-inner">
         <h2>Jouw project hier?</h2>
         <p>Laat het klikken. We zetten jouw idee om in iets dat blijft hangen.</p>
-        <a href="index.html#contact" class="btn btn-w">Start een project →</a>
+        <a href="index.html#contact" class="btn btn-dark">Start een project →</a>
     </div>
 </section>
 
@@ -77,21 +140,20 @@
     <div class="ft">
         <div>
             <a href="index.html" class="logo">
-                <img src="media/Logo-White.png" alt="Aha! Agency">
+                <img src="media/Logo-Color.png" alt="Aha! Agency">
             </a>
             <p>Creating the moment your audience finally gets it. Antwerpen, België.</p>
         </div>
         <div class="fc">
             <div>
                 <h4>Menu</h4>
-                <a href="index.html#hoe">Diensten</a>
                 <a href="projecten.html">Projecten</a>
                 <a href="index.html#wie">Over</a>
                 <a href="index.html#contact">Contact</a>
             </div>
             <div>
                 <h4>Social</h4>
-                <a href="https://instagram.com/aha.digital.eu">Instagram</a>
+                <a href="https://instagram.com/aha.creative.eu">Instagram</a>
                 <a href="#">YouTube</a>
                 <a href="#">LinkedIn</a>
             </div>
@@ -99,7 +161,7 @@
     </div>
     <div class="fb">
         <span>© 2026 Aha! Agency</span>
-        <span>Gemaakt met inzicht.</span>
+        <span>Every great brand starts with an Aha! Moment.</span>
     </div>
 </footer>
 

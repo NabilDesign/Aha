@@ -16,6 +16,15 @@ navLinks.querySelectorAll('a').forEach(a =>
 // ---- HERO ANIMATE IN ----
 requestAnimationFrame(() => document.getElementById('hero').classList.add('go'));
 
+// ---- MOBILE: kaarten klikbaar ipv hover ----
+document.querySelectorAll('.hcard').forEach(card => {
+    card.addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
+        document.querySelectorAll('.hcard').forEach(c => c.classList.remove('open'));
+        if (!isOpen) card.classList.add('open');
+    });
+});
+
 // ---- SCROLL REVEAL ----
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -24,14 +33,12 @@ const revealObserver = new IntersectionObserver((entries) => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.15 });
-
+}, { threshold: 0.1 });
 document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
 
-// ---- PAKKET SELECTIE IN FORMULIER ----
+// ---- PAKKET SELECTIE ----
 const planBtns = document.querySelectorAll('.plan-btn');
 const projectInput = document.getElementById('project');
-
 planBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         planBtns.forEach(b => b.classList.remove('selected'));
@@ -43,29 +50,17 @@ planBtns.forEach(btn => {
 // ---- CONTACT FORMULIER ----
 const form = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
-
-// Sanitize input - strip HTML tags
-const sanitize = (str) => str.replace(/[<>'"&]/g, c => ({
-    '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;', '&': '&amp;'
-}[c]));
+const sanitize = (str) => str.replace(/[<>'"&]/g, c => ({'<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;','&':'&amp;'}[c]));
 
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        // Valideer velden
         const naam = sanitize(document.getElementById('naam').value.trim());
         const email = document.getElementById('email').value.trim();
         const bericht = sanitize(document.getElementById('bericht').value.trim());
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
         if (!naam || naam.length < 2) return;
-        if (!emailRegex.test(email)) return;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
         if (!bericht || bericht.length < 10) return;
-
-        // Hier later Formspree koppelen:
-        // fetch('https://formspree.io/f/jouwcode', { method: 'POST', body: new FormData(form) })
-
         form.querySelectorAll('input, textarea').forEach(el => el.value = '');
         planBtns.forEach(b => b.classList.remove('selected'));
         if (projectInput) projectInput.value = '';
@@ -73,12 +68,3 @@ if (form) {
         setTimeout(() => formSuccess.classList.remove('show'), 4000);
     });
 }
-const nav = document.getElementById('nav');
-
-const onScroll = () => {
-    const heroHeight = document.querySelector('.hero').offsetHeight;
-    nav.classList.toggle('dark', window.scrollY > heroHeight * 0.5);
-};
-
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();

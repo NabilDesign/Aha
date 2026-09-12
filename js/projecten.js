@@ -13,6 +13,21 @@ navLinks.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
+// ---- FILTER TABS ----
+const ftabs = document.querySelectorAll('.ftab');
+const pcards = document.querySelectorAll('.pcard');
+
+ftabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        ftabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const val = tab.dataset.f;
+        pcards.forEach(card => {
+            card.style.display = (val === 'all' || card.dataset.cat === val) ? 'flex' : 'none';
+        });
+    });
+});
+
 // ---- SCROLL REVEAL ----
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -21,6 +36,6 @@ const revealObserver = new IntersectionObserver((entries) => {
             revealObserver.unobserve(entry.target);
         }
     });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
