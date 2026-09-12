@@ -713,8 +713,8 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
     /* --- HERO --- */
     .hero {
         padding: 0;
-        height: calc(100svh - 68px);
-        min-height: 500px;
+        height: auto;
+        min-height: unset;
         display: flex;
         align-items: center;
         position: relative;
@@ -724,26 +724,24 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
         display: flex;
         flex-direction: column;
         grid-template-columns: unset;
-        gap: 1.2rem;
-        padding: 1.5rem 1.4rem;
+        gap: .8rem;
+        padding: 2.5rem 1.4rem;
         position: relative;
         z-index: 2;
         width: 100%;
-        align-self: center;
     }
     .hero .left {
-        gap: 1rem;
+        gap: .7rem;
         padding-right: 0;
     }
-    /* Vinger als grote achtergrond rechts */
+    /* Vinger als subtiele achtergrond */
     .hero .right {
         position: absolute;
-        right: -8vw;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 60vw;
+        right: -10vw;
+        bottom: -5%;
+        width: 55vw;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: flex-end;
         z-index: 1;
         pointer-events: none;
@@ -754,28 +752,28 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
         height: auto;
         transform: scaleX(-1);
         filter: brightness(0) invert(1);
-        opacity: .15;
+        opacity: .12;
     }
     .hero h1 {
-        font-size: clamp(2.8rem, 13vw, 4rem);
-        line-height: .86;
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+        line-height: .88;
     }
     .hero .ey {
-        font-size: .72rem;
+        font-size: .7rem;
         letter-spacing: .06em;
         margin-bottom: 0;
-        opacity: .65;
+        opacity: .6;
     }
     .hero .sub {
-        font-size: .9rem;
-        line-height: 1.55;
+        font-size: .88rem;
+        line-height: 1.5;
         margin-top: 0;
-        max-width: 78%;
-        opacity: .9;
+        max-width: 80%;
+        opacity: .88;
     }
     .hero .acts {
-        gap: .6rem;
-        margin-top: .2rem;
+        gap: .5rem;
+        margin-top: .3rem;
         flex-direction: column;
         align-items: flex-start;
     }
@@ -785,7 +783,9 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
     }
 
     /* --- PLANNEN --- */
-    .who { padding: 3rem 1.2rem 3.5rem; }
+    .who { padding: 2rem 1.2rem 2.5rem; }
+    .problem { padding: 1.5rem 1.2rem 2rem; }
+    .contact { padding: 2rem 1.2rem 2.5rem; }
     .plans-intro { flex-direction: column; gap: .4rem; margin-bottom: 2rem; }
     .plans-intro h2 { font-size: 1.6rem; }
     .plans { grid-template-columns: 1fr; }
@@ -824,21 +824,6 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
     .fc h4 { font-size: .75rem; margin-bottom: .8rem; }
     .fc a { font-size: .88rem; margin-bottom: .5rem; }
     .fb { flex-direction: column; gap: .4rem; text-align: center; font-size: .78rem; }
-}
-
-/* 100svh fix voor Safari iOS */
-@supports (height: 100svh) {
-    @media (max-width: 640px) {
-        .hero {
-            height: calc(100svh - 68px);
-        }
-    }
-}
-/* Fallback voor browsers zonder svh support */
-@media (max-width: 640px) {
-    .hero {
-        height: calc(100vh - 68px);
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
