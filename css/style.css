@@ -30,40 +30,54 @@ nav {
     left: 0;
     right: 0;
     z-index: 50;
-    background: rgba(255,255,255,.9);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .9rem 2.5rem;
+    padding: 1.2rem 2.5rem;
+    transition: background .4s ease, backdrop-filter .4s ease;
+}
+nav.scrolled {
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
 }
 .logo { text-decoration: none; display: flex; align-items: center; }
-.logo img { height: 48px; width: auto; object-fit: contain; }
+.logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: filter .3s;
+}
+nav.scrolled .logo img { filter: none; }
 .nl { display: flex; gap: 2.2rem; align-items: center; }
 .nl a {
     text-decoration: none;
-    color: var(--dark);
+    color: var(--white);
     font-weight: 500;
     font-size: .88rem;
-    opacity: .6;
-    transition: opacity .2s;
+    opacity: .85;
+    transition: opacity .2s, color .3s;
 }
 .nl a:hover { opacity: 1; }
 .nl .c {
-    background: var(--blue);
-    color: var(--white);
+    background: var(--white);
+    color: var(--dark);
     padding: .6rem 1.4rem;
     opacity: 1;
-    font-weight: 600;
+    font-weight: 700;
     font-size: .85rem;
-    transition: background .2s;
+    transition: background .2s, color .2s;
 }
-.nl .c:hover { background: #0f35cc; }
+.nl .c:hover { background: var(--blue); color: var(--white); }
+nav.scrolled .nl a { color: var(--dark); }
+nav.scrolled .nl .c { background: var(--blue); color: var(--white); }
 .nl-close { display: none; }
 .bg { display: none; background: none; border: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.bg span { width: 24px; height: 2px; background: var(--dark); display: block; }
+.bg span { width: 24px; height: 2px; background: var(--white); display: block; transition: background .3s; }
+nav.scrolled .bg span { background: var(--dark); }
 
 /* ---- BUTTONS ---- */
 .btn {
@@ -109,7 +123,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    padding-top: 72px; /* nav hoogte */
+    padding-top: 0;
 }
 
 /* Achtergrond */
@@ -507,10 +521,16 @@ footer { background: var(--dark); color: var(--white); padding: 4rem 2.5rem 2rem
     /* --- NAV --- */
     nav {
         padding: .85rem 1.2rem;
-        background: rgba(255,255,255,.98);
+        background: transparent;
         position: fixed;
         top: 0; left: 0; right: 0;
         z-index: 100;
+    }
+    nav.scrolled {
+        background: rgba(255,255,255,.95) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(0,0,0,.06);
     }
     .logo img { height: 40px; }
     .bg { display: flex; z-index: 110; }

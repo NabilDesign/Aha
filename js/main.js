@@ -16,6 +16,14 @@ navLinks.querySelectorAll('a').forEach(a =>
 // ---- HERO ANIMATE IN ----
 requestAnimationFrame(() => document.getElementById('hero').classList.add('go'));
 
+// ---- NAV SCROLL EFFECT ----
+const nav = document.getElementById('nav');
+const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
 // ---- MOBILE: kaarten klikbaar ipv hover ----
 document.querySelectorAll('.hcard').forEach(card => {
     card.addEventListener('click', () => {
