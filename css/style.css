@@ -42,7 +42,7 @@ nav.dark { background: #162050; }
     gap: .7rem;
 }
 .logo img {
-    height: 52px;
+    height: 64px;
     width: auto;
     object-fit: contain;
     border-radius: 0;
@@ -159,7 +159,8 @@ nav.dark { background: #162050; }
     object-fit: contain;
     border-radius: 0;
     display: block;
-    filter: drop-shadow(0 24px 48px rgba(0,0,0,.25));
+    transform: scaleX(-1);
+    filter: brightness(0) invert(1);
 }
 .hero .acts {
     display: flex;
@@ -623,75 +624,146 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
    RESPONSIVE — MOBILE (max 640px)
    ============================================= */
 @media (max-width: 640px) {
-    /* NAV */
-    nav { padding: .9rem 1.2rem; }
-    .logo img { height: 40px; }
+
+    /* --- NAV --- */
+    nav {
+        padding: .8rem 1.2rem;
+    }
+    .logo img { height: 42px; }
     .nl {
         position: fixed;
-        inset: 0 0 0 25%;
-        background: #162050;
+        inset: 0 0 0 20%;
+        background: #0f1535;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        padding: 2rem;
-        gap: 2rem;
+        padding: 2.5rem 2rem;
+        gap: 2.5rem;
         transform: translateX(100%);
         transition: transform .4s var(--ease);
         z-index: 40;
+        box-shadow: -4px 0 30px rgba(0,0,0,.3);
     }
     .nl.open { transform: none; }
-    .nl a { font-size: 1.3rem; opacity: 1; color: var(--white); }
-    .nl .c { background: var(--blue); color: var(--white); padding: .8rem 1.5rem; }
+    .nl a {
+        font-size: 1.4rem;
+        opacity: 1;
+        color: var(--white);
+        font-weight: 700;
+    }
+    .nl .c {
+        background: var(--blue);
+        color: var(--white);
+        padding: .9rem 1.8rem;
+    }
     .bg { display: flex; z-index: 50; }
 
-    /* HERO */
+    /* --- HERO --- */
     .hero {
-        padding: 2rem 1.2rem 2.5rem;
-        min-height: calc(100vh - 58px);
+        padding: 1.5rem 1.2rem 2rem;
+        min-height: calc(100svh - 58px);
     }
     .hero .inner {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        align-items: flex-start;
+        grid-template-columns: 1fr auto;
+        gap: 0;
+        align-items: center;
+        height: 100%;
     }
-    .hero .logo-img { display: none; }
-    .hero .left { gap: 1rem; }
+    .hero .left {
+        gap: .8rem;
+        padding-right: 1rem;
+    }
+    /* Vinger klein maar zichtbaar op mobiel */
+    .hero .right {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        align-self: stretch;
+        overflow: hidden;
+    }
+    .hero .logo-img {
+        display: block;
+        width: clamp(90px, 28vw, 160px);
+        height: auto;
+        transform: scaleX(-1);
+        filter: brightness(0) invert(1);
+        opacity: .35;
+        align-self: flex-end;
+    }
     .hero h1 {
-        font-size: clamp(2.8rem, 13vw, 4rem);
-        line-height: .88;
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+        line-height: .86;
     }
-    .hero .ey { font-size: .75rem; letter-spacing: .1em; margin-bottom: .5rem; }
-    .hero .sub { font-size: .9rem; margin-top: .5rem; max-width: 100%; }
-    .hero .acts { gap: .75rem; margin-top: .5rem; }
-    .btn { font-size: .8rem; padding: .7rem 1.2rem; }
+    .hero .ey {
+        font-size: .7rem;
+        letter-spacing: .08em;
+        margin-bottom: 0;
+        opacity: .7;
+    }
+    .hero .sub {
+        font-size: .88rem;
+        line-height: 1.5;
+        margin-top: 0;
+        max-width: 100%;
+        opacity: .9;
+    }
+    .hero .acts {
+        gap: .6rem;
+        margin-top: .3rem;
+        flex-wrap: wrap;
+    }
+    .btn {
+        font-size: .78rem;
+        padding: .65rem 1.1rem;
+    }
 
-    /* PROBLEM */
-    .problem { padding: 2.5rem 1.2rem 3rem; }
-    .problem .lead { font-size: clamp(1.2rem, 6vw, 1.8rem); }
-    .problem .bottom { grid-template-columns: 1fr; gap: 1rem; }
-
-    /* PLANNEN */
-    .who { padding: 3rem 1.2rem 4rem; }
-    .plans-intro { flex-direction: column; gap: .5rem; }
+    /* --- PLANNEN --- */
+    .who { padding: 3rem 1.2rem 3.5rem; }
+    .plans-intro { flex-direction: column; gap: .4rem; margin-bottom: 2rem; }
+    .plans-intro h2 { font-size: 1.6rem; }
     .plans { grid-template-columns: 1fr; }
-    .plan { border-right: none; border-bottom: 1px solid rgba(255,255,255,.12); min-height: auto; padding: 2rem 1.5rem; }
+    .plan {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        min-height: auto;
+        padding: 1.8rem 1.4rem;
+        gap: 1.5rem;
+    }
     .plan:last-child { border-bottom: none; }
-    .plan-num { font-size: 3rem; }
-    .plan-body h3 { font-size: 1.4rem; }
+    .plan-num { font-size: 2.8rem; }
+    .plan-body h3 { font-size: 1.3rem; }
+    .plan-body p { font-size: .85rem; }
+    .plan-list li { font-size: .82rem; }
+    .plan-cta { font-size: .8rem; padding: .65rem 1.2rem; }
 
-    /* CONTACT */
-    .contact { padding: 4rem 1.2rem 3rem; }
-    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .contact-left h2 { font-size: clamp(1.6rem, 8vw, 2.5rem); }
-    .plan-select { flex-direction: column; }
-    .plan-btn { min-width: 100%; }
-    .field input, .field textarea { font-size: .95rem; padding: .8rem 1rem; }
+    /* --- CONTACT --- */
+    .contact { padding: 3.5rem 1.2rem 3rem; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-left h2 { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+    .contact-left p { font-size: .88rem; }
+    .contact-info a { font-size: .8rem; }
+    .plan-select { flex-direction: column; gap: .5rem; }
+    .plan-btn { min-width: 100%; text-align: center; padding: .8rem 1rem; }
+    .field label { font-size: .75rem; }
+    .field input,
+    .field textarea { font-size: 1rem; padding: .85rem 1rem; }
+    .field textarea { min-height: 110px; }
 
-    /* FOOTER */
-    footer { padding: 3rem 1.2rem 1.5rem; }
-    .ft { flex-direction: column; gap: 2rem; padding-bottom: 2rem; }
+    /* --- FOOTER --- */
+    footer { padding: 2.5rem 1.2rem 1.5rem; }
+    .ft { flex-direction: column; gap: 1.8rem; padding-bottom: 2rem; }
+    .ft p { font-size: .82rem; }
     .fc { gap: 2rem; }
-    .fb { flex-direction: column; gap: .5rem; text-align: center; }
+    .fc h4 { font-size: .75rem; margin-bottom: .8rem; }
+    .fc a { font-size: .88rem; margin-bottom: .5rem; }
+    .fb { flex-direction: column; gap: .4rem; text-align: center; font-size: .78rem; }
+}
+
+/* 100svh fix voor Safari iOS */
+@supports (height: 100svh) {
+    @media (max-width: 640px) {
+        .hero { min-height: calc(100svh - 58px); }
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
