@@ -715,7 +715,8 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
     /* --- HERO --- */
     .hero {
         padding: 0;
-        min-height: calc(100svh - 68px);
+        height: calc(100svh - 68px);
+        min-height: 500px;
         display: flex;
         align-items: center;
         position: relative;
@@ -725,11 +726,12 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
         display: flex;
         flex-direction: column;
         grid-template-columns: unset;
-        gap: 1.5rem;
-        padding: 2rem 1.4rem;
+        gap: 1.2rem;
+        padding: 1.5rem 1.4rem;
         position: relative;
         z-index: 2;
         width: 100%;
+        align-self: center;
     }
     .hero .left {
         gap: 1rem;
@@ -829,7 +831,15 @@ footer { background: #162050; color: var(--white); padding: 4rem 2.5rem 2rem; }
 /* 100svh fix voor Safari iOS */
 @supports (height: 100svh) {
     @media (max-width: 640px) {
-        .hero { min-height: calc(100svh - 58px); }
+        .hero {
+            height: calc(100svh - 68px);
+        }
+    }
+}
+/* Fallback voor browsers zonder svh support */
+@media (max-width: 640px) {
+    .hero {
+        height: calc(100vh - 68px);
     }
 }
 
