@@ -13,12 +13,6 @@ navLinks.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => navLinks.classList.remove('open'))
 );
 
-// ---- MOBILE HERO FOTO ----
-const heroBg = document.getElementById('heroBg');
-if (heroBg && window.innerWidth <= 640) {
-    heroBg.src = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80';
-}
-
 // ---- HERO ANIMATE IN ----
 requestAnimationFrame(() => document.getElementById('hero').classList.add('go'));
 
