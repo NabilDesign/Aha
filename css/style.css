@@ -20,19 +20,36 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Noise overlay — geeft diepte aan alle blauwe vlakken */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: .04;
+    pointer-events: none;
+    z-index: 100;
+}
+
 /* ---- NAV ---- */
 nav {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--blue);
+    background: rgba(27,77,255,.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,.1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2.5rem;
     transition: background .4s var(--ease);
 }
-nav.dark { background: #162050; }
+nav.dark {
+    background: rgba(15,21,53,.85);
+    border-bottom-color: rgba(255,255,255,.08);
+}
 
 .logo {
     text-decoration: none;
@@ -148,6 +165,10 @@ nav.dark { background: #162050; }
     justify-content: center;
     overflow: hidden;
     min-height: calc(100vh - 58px);
+    background:
+            radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.07) 0%, transparent 50%),
+            radial-gradient(ellipse at 10% 80%, rgba(0,0,60,.3) 0%, transparent 50%),
+            var(--blue);
 }
 .hero .inner {
     max-width: 1280px;
@@ -271,7 +292,13 @@ nav.dark { background: #162050; }
 /* =============================================
    PLANNEN
    ============================================= */
-.who { background: #111d4a; padding: 5rem 2.5rem 6rem; }
+.who {
+    background:
+            radial-gradient(ellipse at 100% 0%, rgba(27,77,255,.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 0% 100%, rgba(27,77,255,.1) 0%, transparent 40%),
+            #111d4a;
+    padding: 5rem 2.5rem 6rem;
+}
 
 .plans-intro {
     max-width: 1280px;
@@ -306,8 +333,13 @@ nav.dark { background: #162050; }
     gap: 2.5rem;
     border-right: 1px solid rgba(255,255,255,.12);
     position: relative;
-    transition: background .35s var(--ease);
+    transition: background .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
     min-height: 480px;
+}
+.plan:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    z-index: 2;
 }
 .plan:last-child { border-right: none; }
 
@@ -459,7 +491,9 @@ nav.dark { background: #162050; }
    CONTACT
    ============================================= */
 .contact {
-    background: linear-gradient(180deg, #111d4a 0%, var(--blue) 50%);
+    background:
+            radial-gradient(ellipse at 50% 0%, rgba(27,77,255,.2) 0%, transparent 60%),
+            linear-gradient(180deg, #111d4a 0%, #0d1535 100%);
     padding: 7rem 2.5rem 6rem;
 }
 .contact-inner {
@@ -540,8 +574,9 @@ nav.dark { background: #162050; }
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-    border-color: var(--white);
-    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.6);
+    background: rgba(255,255,255,.1);
+    box-shadow: 0 0 0 3px rgba(27,77,255,.25);
 }
 .field select option { background: #162050; color: var(--white); }
 .plan-select {

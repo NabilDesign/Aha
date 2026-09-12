@@ -44,12 +44,31 @@ planBtns.forEach(btn => {
 const form = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
+// Sanitize input - strip HTML tags
+const sanitize = (str) => str.replace(/[<>'"&]/g, c => ({
+    '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;', '&': '&amp;'
+}[c]));
+
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Hier later een echte backend of Formspree koppelen
-        // Voor nu: success melding tonen
-        form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+
+        // Valideer velden
+        const naam = sanitize(document.getElementById('naam').value.trim());
+        const email = document.getElementById('email').value.trim();
+        const bericht = sanitize(document.getElementById('bericht').value.trim());
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!naam || naam.length < 2) return;
+        if (!emailRegex.test(email)) return;
+        if (!bericht || bericht.length < 10) return;
+
+        // Hier later Formspree koppelen:
+        // fetch('https://formspree.io/f/jouwcode', { method: 'POST', body: new FormData(form) })
+
+        form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+        planBtns.forEach(b => b.classList.remove('selected'));
+        if (projectInput) projectInput.value = '';
         formSuccess.classList.add('show');
         setTimeout(() => formSuccess.classList.remove('show'), 4000);
     });
