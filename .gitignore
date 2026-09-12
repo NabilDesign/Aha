@@ -1,0 +1,18 @@
+# IDE bestanden
+.idea/
+.vscode/
+*.iml
+
+# Node
+node_modules/
+index.js
+package.json
+package-lock.json
+
+# OS bestanden
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
